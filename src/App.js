@@ -1,4 +1,3 @@
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
 import Public from './components/Public';
@@ -19,7 +18,8 @@ function App() {
 
           <Route path='notes'>
             <Route index element={<NotesList />} />
-          </Route>
+          </Route> {/* Why this */}
+          {/* <Route path='notes' element={<NotesList />} /> -> Why this not */} 
 
           <Route path='users'>
             <Route index element={<UsersList />} />
