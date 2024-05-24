@@ -1,7 +1,9 @@
 import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
 import { apiSlice } from "../../app/api/apiSlice";
 
-const notesAdapter = createEntityAdapter({});
+const notesAdapter = createEntityAdapter({
+    sortComparer: (a, b) => (a.completed === b.completed) ? 0 : a.completed ? 1 : -1
+});
 
 const initialState = notesAdapter.getInitialState();
 
@@ -37,7 +39,7 @@ export const {
 } = notesApiSlice
 
 // returns the query result object
-export const selectnotesResult = notesApiSlice.endpoints.getnotes.select()
+export const selectnotesResult = notesApiSlice.endpoints.getNotes.select()
 
 // creates memoized selector
 const selectnotesData = createSelector(
