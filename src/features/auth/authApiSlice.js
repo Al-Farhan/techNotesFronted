@@ -16,8 +16,28 @@ export const authApiSlice = apiSlice.injectEndpoints({
                 method: 'POST',
             }),
             async onQueryStarted(arg, { dispatch, queryFulfilled }) {
-                
+                try {
+                    //const { data } = 
+                    await queryFulfilled
+                    //console.log(data)
+                    dispatch(logOut())
+                    dispatch(apiSlice.util.resetApiState())
+                } catch (err) {
+                    console.log(err)
+                }
             }
-        })
+        }),
+        refresh: builder.mutation({
+            query: () => ({
+                url: '/auth/refresh',
+                method: 'GET'
+            })
+        }),
     })
 })
+
+export const {
+    useLoginMutation,
+    useSendLogoutMutation,
+    useRefreshMutation
+} = authApiSlice;
