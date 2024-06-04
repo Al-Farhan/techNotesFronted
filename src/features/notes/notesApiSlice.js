@@ -15,7 +15,7 @@ export const notesApiSlice = apiSlice.injectEndpoints({
                 return response.status === 200 && !result.isError
             },
             transformResponse: responseData => {
-                const loadednotes = responseData.map(note => {
+                const loadednotes = responseData?.map(note => {
                     note.id = note._id
                     return note
                 });
