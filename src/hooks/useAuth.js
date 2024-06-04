@@ -2,8 +2,6 @@ import { useSelector } from 'react-redux';
 import {selectCurrentToken} from '../features/auth/authSlice'
 import { jwtDecode } from 'jwt-decode';
 
-import React from 'react'
-
 const useAuth = () => {
   const token = useSelector(selectCurrentToken);
   let isManager = false;

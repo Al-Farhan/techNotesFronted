@@ -284,6 +284,21 @@ tr {
   align-items: center;
 }
 
+.form__input_div {
+  position: relative;
+  width: 100%;
+}
+
+.password__icon_div {
+  position: absolute;
+  top: 50%;
+  right: 30rem; /* Adjust as needed for padding */
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
 .form__input,
 .form__submit-button {
   padding: 0.5em;
